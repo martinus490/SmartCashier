@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div id="Title">SMART CASHIER</div>
+        <div id="OTPBox">
+          <div id="OTP">
+            <form method="get" class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
+              <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+              <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+              <input type="text" id="digit-4" name="digit-4" data-previous="digit-3" />
+            </form>
+          </div>
+          <div id="Instruction">Please Insert OTP</div>
+        </div>
     </div>
   );
 }
