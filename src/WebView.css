@@ -1,0 +1,79 @@
+.App {
+  width: 100%;
+  height: 100%;
+  background-color: #16212c;
+}
+
+#Title {
+  position: relative;
+  text-align: center;
+  font-size: 4em;
+  top: 7%;
+  color: #b7d3ee;
+}
+
+#Instruction{
+  position: relative;
+  text-align: center;
+  font-size: 2.5em;
+  top: 7%;
+  color: #b7d3ee;
+}
+
+#OTPBox {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  border: solid 5px #85a2be;
+  background-color: #34495d;
+}
+
+#OTP {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digit-group {
+  position: relative;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  justify-content: space-evenly;
+}
+
+.digit-group > input {
+  position: relative;
+  background-color: #16212c;
+  border: none;
+  text-align: center;
+  overflow: hidden;
+  font-size: 10em;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  margin: 0 5px;
+  border-radius: 20px;
+}
+
+#submitBtn{
+  position: absolute;
+  width: 10%;
+  font-family: 'Raleway', sans-serif;
+  left: 50%;
+  font-size: 1.5em;
+  color: #b7d3ee;
+  padding: 10px;
+  border: solid 3px #85a2be;
+  border-radius: 20px;
+  background-color: #16212c;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
