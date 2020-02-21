@@ -1,24 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import WebView  from './WebView';
+import PostSubmit from './PostSubmit';
 
-function App() {
-  return (
-    <div className="App">
-        <div id="Title">SMART CASHIER</div>
-        <div id="OTPBox">
-          <div id="OTP">
-            <form method="get" class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
-              <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
-              <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
-              <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
-              <input type="text" id="digit-4" name="digit-4" data-previous="digit-3" />
-            </form>
-          </div>
-          <div id="Instruction">Please Insert OTP</div>
-        </div>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return(
+      <div className="App">
+        <Router>
+          <switch>
+            <Route exact path="/" render={props => (<WebView {...props}/>)} />
+            <Route path="/PostSubmit" render={props => (<PostSubmit {...props}/>)} />
+          </switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
+
+//React.Fragment -> wrap all component in return
