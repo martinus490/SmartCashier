@@ -5,6 +5,23 @@ import PostSubmit from './PostSubmit';
 import $ from 'jquery';
 
 class WebView extends Component{
+
+    componentDidMount() {
+        fetch('http://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ contacts: data })
+        })
+        .catch(console.log)
+      }
+
+    componentDidMount() {
+        fetch().then(res => res.json()).then((data) => {
+            this.setState({data})
+        })
+        .catch(console.log)
+    }
+
     otp = () => {
         $('.digit-group').find('input').each(function() {
             $(this).attr('maxlength', 1);

@@ -9,6 +9,9 @@ class PostSubmit extends Component{
                 <div id="title">TRANSACTION DETAIL</div>
                 <div id="detailBox">
                     <div id="transactionId">Transaction ID: </div>
+                    <div id="transactionList">
+
+                    </div>
                 </div>
             </div>
         );
