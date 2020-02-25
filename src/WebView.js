@@ -1,27 +1,9 @@
 import React, { Component } from "react";
-import { withRouter, Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './WebView.css';
-import PostSubmit from './PostSubmit';
 import $ from 'jquery';
 
 class WebView extends Component{
-
-    componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then((data) => {
-          this.setState({ TransactionData: data })
-        })
-        .catch(console.log)
-      }
-
-    componentDidMount() {
-        fetch().then(res => res.json()).then((data) => {
-            this.setState({data})
-        })
-        .catch(console.log)
-    }
-
     otp = () => {
         $('.digit-group').find('input').each(function() {
             $(this).attr('maxlength', 1);
@@ -50,6 +32,7 @@ class WebView extends Component{
             alert("OTP Must Be Numberic!");
             return;
         }
+        this.getDataTransaction();
         return this.props.history.push('/PostSubmit');
     }
 
@@ -59,7 +42,7 @@ class WebView extends Component{
                             document.getElementById('digit-2').value +
                             document.getElementById('digit-3').value +
                             document.getElementById('digit-4').value;
-        if(otpInput.length!=4) 
+        if(otpInput.length!==4) 
             return alert("Please Insert OTP");
             
             this.otpValidation(Number(otpInput));
@@ -71,7 +54,7 @@ class WebView extends Component{
                         document.getElementById('digit-2').value +
                         document.getElementById('digit-3').value +
                         document.getElementById('digit-4').value;
-        if(otpInput.length!=4) 
+        if(otpInput.length!==4) 
             return alert("Please Insert OTP");
 
         this.otpValidation(Number(otpInput));
