@@ -10,7 +10,7 @@ class WebView extends Component{
         fetch('http://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then((data) => {
-          this.setState({ contacts: data })
+          this.setState({ TransactionData: data })
         })
         .catch(console.log)
       }
