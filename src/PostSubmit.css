@@ -35,10 +35,39 @@
 }
 
 #transactionList{
+    display: flex;
+    display: -webkit-flex; 
     margin-top: 20px;
     height: 80%;
     background-color: #34495d;
     border: solid 4px #b7d3ee;
     border-radius: 15px;
     padding: 10px;
+}
+
+#transactionListDetail{
+    display: flex;
+    width: 100%;
+}
+
+.transactionListItem{
+    height: 10%;
+    background-color: blue;
+    margin: 2px;
+}
+
+#productName{
+    width: 55%;
+}
+
+#quantity{
+    width: 5%;
+}
+
+#price{
+    width: 20%;
+}
+
+#totalPrice{
+    width: 20%;
 }

@@ -8,10 +8,10 @@ class App extends Component {
     return(
       <div className="App">
         <Router>
-          <switch>
+          <Switch>
             <Route exact path="/" render={props => (<WebView {...props}/>)} />
             <Route path="/PostSubmit" render={props => (<PostSubmit {...props}/>)} />
-          </switch>
+          </Switch>
         </Router>
       </div>
     );
