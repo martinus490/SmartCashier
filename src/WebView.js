@@ -32,6 +32,7 @@ class WebView extends Component{
             alert("OTP Must Be Numberic!");
             return;
         }
+
         return this.props.history.push({
             pathname: '/PostSubmit',
             state : { OTP: otpInput }

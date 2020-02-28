@@ -4,7 +4,6 @@ import './PostSubmit.css';
 import transactionList from './TransactionList';
 
 class PostSubmit extends Component{
-    
     transactionData = {
         transactionId: "123456789",
         transactionDetail:[
