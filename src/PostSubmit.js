@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './PostSubmit.css';
-import transactionList from './TransactionList';
+import TransactionDetail from './TransactionDetail';
 
 class PostSubmit extends Component{
     transactionData = {
@@ -9,12 +9,52 @@ class PostSubmit extends Component{
         transactionDetail:[
             {
                 productName: "Pasta Gigi",
-                quantity: 1,
+                quantity: 3,
                 price: 2000,
             },
             {
                 productName: "Sikat WC",
                 quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 1,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 4,
+                price: 4000,
+            },
+            {
+                productName: "Sikat WC",
+                quantity: 4,
                 price: 4000,
             }
         ]
@@ -42,18 +82,14 @@ class PostSubmit extends Component{
                 <div id="detailBox">
                     <div id="transactionId">Transaction ID : {this.transactionData.transactionId}</div>
                     <div id="transactionList">
-                        {
-                            this.transactionData.transactionDetail.map((detail) => {
-                                return(
-                                    <div id="transactionListDetail">
-                                        <div className="transactionListItem" id="productName">{detail.productName}</div>
-                                        <div className="transactionListItem" id="quantity">{detail.quantity}</div>
-                                        <div className="transactionListItem" id="price">{detail.price}</div>
-                                        <div className="transactionListItem" id="totalPrice">asa</div>
-                                    </div>
-                                );
-                            })
-                        }
+                        <div id="transactionDetail">
+                            {
+                                this.transactionData.transactionDetail.map((detail) => {
+                                    return <TransactionDetail detail = {detail}/>
+                                })
+                            }
+                        </div>
+                        <div id="grandTotal"></div>
                     </div>
                 </div>
             </div>
