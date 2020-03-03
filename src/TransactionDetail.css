@@ -1,0 +1,19 @@
+#transactionListDetail{
+    background-color: orange;
+    position: relative;
+    width: 100%;
+}
+
+.transactionListItem{
+    margin: 2px;
+    text-align: center;
+    padding: 10px;
+    background-color: blueviolet;
+    position: relative;
+    font-size: large;
+    font-weight: bold;
+}
+
+#productName{
+    text-align: left;
+}
