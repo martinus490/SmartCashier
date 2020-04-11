@@ -63,13 +63,14 @@
 }
 
 #submitBtn{
+  margin-top: 2px;
   position: absolute;
-  width: 10%;
+  width: 15%;
   font-family: 'Raleway', sans-serif;
   left: 50%;
   font-size: 1.5em;
   color: #b7d3ee;
-  padding: 10px;
+  padding: 7px;
   border: solid 3px #85a2be;
   border-radius: 20px;
   background-color: #16212c;

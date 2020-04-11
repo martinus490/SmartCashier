@@ -7,8 +7,8 @@
 #title{
     position: relative;
     text-align: center;
-    font-size: 4em;
-    top: 7%;
+    font-size: 3em;
+    top: 2%;
     color: #b7d3ee;
     font-weight: bold;
 }
@@ -16,10 +16,10 @@
 #detailBox{
     position: relative;
     padding: 30px;
-    width: 60%;
-    height: 60%;
+    width: 90%;
+    height: 70%;
     left: 50%;
-    top: 45%;
+    top:43%;
     transform: translate(-50%, -50%);
     border-radius: 50px;
     border: solid 5px #85a2be;
@@ -38,37 +38,134 @@
 
 #transactionList{ 
     position: relative;
-    margin-top: 20px;
-    height: 80%;
-    background-color: #34495d;
-    background-color: red;
+    margin-top: 10px;
+    height: 83%;
     border: solid 4px #b7d3ee;
     border-radius: 15px;
     padding: 10px;
 }
 
+.transactionHeader{
+    width: 98%;
+    display: flex;
+    font-size: 1.8em;
+    text-align: center;
+    font-weight: bold;
+    color: #b7d3ee;
+}
+
+#productNameHeader{
+    width: 50%;
+}
+
+#quantityHeader{
+    width: 10%;
+}
+
+#unitPriceHeader{
+    width: 20%;
+}
+
+#totalPriceHeader{
+    width: 20%;
+}
+
 #transactionDetail{
     position: relative;
-    overflow: scroll;
+    height: 70%;
+    overflow-y: scroll;
 }
 
-#transactionListDetail{
+#footer{
+    position: absolute;
     display: flex;
+    bottom: 10px;
+    padding: 2px;
+    width: 96%;
+}
+
+#totalBox{
+    position: absolute;
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    width: 40%;
+    right: 0px;
+    color: #b7d3ee;
+}
+
+.footerBtn{
+    border: solid 3px #85a2be;
+    border-radius: 20px;
+    font-size: 1.5em;
+    padding: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    color: #b7d3ee;
+    font-weight: bold;
+    background-color: #16212c;
+}
+
+#cancelBtnDiv {
+    margin-left: 20px;
+}
+
+#total{
+    font-size: 2em;
+    width: 50%;
+}
+
+#totalValue{
+    font-size: 2em;
+    width: 50%;
+}
+
+.modal {
+    font-size: 3em;
+}
+
+.modal > .header {
     width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
 }
 
-#productName{
-    width: 55%;
+.modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+}
+  
+.modal > .actions {
+    margin: auto;
+}
+  
+.modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+}
+  
+.modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
 }
 
-#quantity{
-    width: 5%;
-}
+#loading {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-#price{
-    width: 20%;
-}
-
-#totalPrice{
-    width: 20%;
 }
