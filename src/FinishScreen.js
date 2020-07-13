@@ -15,6 +15,10 @@ class FinishScreen extends Component{
         }
     }
 
+    componentDidMount() {
+        this.screen.current.focus();
+    }
+
     render(){
         return(
             <div id="mainScreen" onKeyPress={this.handleKeyPress} tabIndex="0" ref={this.screen}>

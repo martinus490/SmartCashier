@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import './PostSubmit.css';
 import CurrencyFormat from 'react-currency-format';
 import TransactionDetail from './TransactionDetail';
@@ -18,6 +20,7 @@ class PostSubmit extends Component{
     }
 
     GetGrandTotal = () => {
+        this.grandTotals = 0;
         var data = this.state.transactionData.TRANSACTION_DETAIL;
         for (let i = 0; i < data.length; i++){
             this.grandTotals += Number(data[i].QUANTITY) * Number(data[i].BASE_PRICE);
@@ -26,16 +29,13 @@ class PostSubmit extends Component{
     }
 
     handleKeyPress = (event) => {
-        if(event.key === 'Enter'){
+        console.log(event.key)
+        if(event.key === 'Enter')
             this.handleOnClick(1);
-            // return this.props.history.push({
-            //     pathname: '/FinishScreen',
-            //     state: { 
-            //         txnId: this.state.transactionData.ID_TRANSACTION, 
-            //         grandPrice: this.grandTotals
-            //     }
-            // });
-        }
+        if(event.key === 'c')
+            this.handleOnClick(2);
+        if(event.key === 'r')
+            this.reload();
     }
 
     handleOnClick = (id) => {
@@ -52,9 +52,12 @@ class PostSubmit extends Component{
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(this.state.transactionData.STATUS === "failed"){
+                    alert("Sorry, System Is Unavailable At The Moment");
+                    return this.props.history.push({pathname: '/'});
+                }
             })
-            .catch(console.log)
+            .catch(console.log);
         }
         else{
             fetch('https://smarley-rest.herokuapp.com/closeTransaction', {
@@ -69,9 +72,12 @@ class PostSubmit extends Component{
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(this.state.transactionData.STATUS === "failed"){
+                    alert("Sorry, System Is Unavailable At The Moment");
+                    return this.props.history.push({pathname: '/'});
+                }
             })
-            .catch(console.log)
+            .catch(console.log);
         }
         return this.props.history.push({pathname: '/FinishScreen'});
     }
@@ -102,6 +108,31 @@ class PostSubmit extends Component{
         .catch(console.log)
     }
 
+    reload = () => {    
+        this.setState({
+            finish: false
+        })  
+
+        fetch('https://smarley-rest.herokuapp.com/getTransactionDetail', {
+            method: 'post',
+            mode: "cors",
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({OTP: this.props.location.state.OTP})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.STATUS === "failed"){
+                alert("Sorry, System Is Unavailable At The Moment");
+                return this.props.history.push({pathname: '/'});
+            }
+            this.setState({
+                transactionData: data,
+                finish: true
+            })
+        })
+        .catch(console.log)
+    }
+
     render(){
         if(!this.state.finish) 
             return (
@@ -115,7 +146,12 @@ class PostSubmit extends Component{
                 <div className="main" onKeyPress={this.handleKeyPress} tabIndex="0" ref={this.screen}>
                     <div id="title">TRANSACTION DETAIL</div>
                     <div id="detailBox">
-                        <div id="transactionId">Transaction ID : {this.state.transactionData.ID_TRANSACTION}</div>
+                        <div id="detailBoxHeader">
+                            <div id="transactionId">Transaction ID : {this.state.transactionData.ID_TRANSACTION}</div>
+                            <div id="refresh" onClick={this.reload}>
+                                <FontAwesomeIcon icon={faSyncAlt} />
+                            </div>
+                        </div>
                         <div id="transactionList">
                             <div className="transactionHeader">
                                 <div id="productNameHeader">Product Name</div>
